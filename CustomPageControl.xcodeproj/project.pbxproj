@@ -12,6 +12,8 @@
 		044A0C4C2242239A00CE7FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044A0C4A2242239A00CE7FE3 /* Main.storyboard */; };
 		044A0C4E224223AD00CE7FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044A0C4D224223AD00CE7FE3 /* Assets.xcassets */; };
 		044A0C51224223AD00CE7FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044A0C4F224223AD00CE7FE3 /* LaunchScreen.storyboard */; };
+		044A0C5A2242283200CE7FE3 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A0C582242283100CE7FE3 /* ColorCollectionViewCell.swift */; };
+		044A0C5B2242283200CE7FE3 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044A0C592242283100CE7FE3 /* ColorCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		044A0C4D224223AD00CE7FE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		044A0C50224223AD00CE7FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		044A0C52224223AD00CE7FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		044A0C582242283100CE7FE3 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		044A0C592242283100CE7FE3 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				044A0C4D224223AD00CE7FE3 /* Assets.xcassets */,
 				044A0C4F224223AD00CE7FE3 /* LaunchScreen.storyboard */,
 				044A0C52224223AD00CE7FE3 /* Info.plist */,
+				044A0C582242283100CE7FE3 /* ColorCollectionViewCell.swift */,
+				044A0C592242283100CE7FE3 /* ColorCollectionViewCell.xib */,
 			);
 			path = CustomPageControl;
 			sourceTree = "<group>";
@@ -124,6 +130,7 @@
 			files = (
 				044A0C51224223AD00CE7FE3 /* LaunchScreen.storyboard in Resources */,
 				044A0C4E224223AD00CE7FE3 /* Assets.xcassets in Resources */,
+				044A0C5B2242283200CE7FE3 /* ColorCollectionViewCell.xib in Resources */,
 				044A0C4C2242239A00CE7FE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044A0C5A2242283200CE7FE3 /* ColorCollectionViewCell.swift in Sources */,
 				044A0C492242239A00CE7FE3 /* ViewController.swift in Sources */,
 				044A0C472242239A00CE7FE3 /* AppDelegate.swift in Sources */,
 			);
@@ -285,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AH7QGTUTFD;
 				INFOPLIST_FILE = CustomPageControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AH7QGTUTFD;
 				INFOPLIST_FILE = CustomPageControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
