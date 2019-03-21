@@ -13,6 +13,7 @@ import UIKit
 class CustomPageControl: UIControl {
     open var numberOfPages: Int = 0 {
         didSet {
+            numberOfPages += 2
             for tag in 0 ..< numberOfPages {
                 let dot = getDotView()
                 dot.tag = tag
@@ -46,7 +47,9 @@ class CustomPageControl: UIControl {
     }()
     
     private lazy var stackView = UIStackView.init(frame: bounds)
-    private lazy var constantSpace = ((stackView.spacing) * CGFloat(numberOfPages - 1) + ((bounds.height * 0.45) * CGFloat(numberOfPages)) - bounds.width)
+    private lazy var constantSpace = ((stackView.spacing) * CGFloat(numberOfPages - 1) + ((bounds.height * dotHeightMultiplier) * CGFloat(numberOfPages)) - bounds.width)
+    private var dotHeightMultiplier: CGFloat = 0.3
+    private var dotWidthMultiplier: CGFloat = 0.9
     
     private lazy var selectedLeadingConstraint: NSLayoutConstraint = {
         let constraint = selectedDot.leadingAnchor.constraint(
@@ -101,7 +104,7 @@ class CustomPageControl: UIControl {
         stackView.alignment = .center
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 8
+        stackView.spacing = 4
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(stackView)
@@ -119,16 +122,16 @@ class CustomPageControl: UIControl {
             self.addConstraints([
                 
                 dot.centerYAnchor.constraint(equalTo: self.stackView.centerYAnchor),
-                dot.widthAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.45, constant: 0),
-                dot.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.45, constant: 0)
+                dot.widthAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: dotWidthMultiplier, constant: 0),
+                dot.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: dotHeightMultiplier, constant: 0)
                 
                 ])
         }
         
         self.addSubview(selectedDot)
         self.addConstraints([
-            selectedDot.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.45, constant: 0),
-            selectedDot.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: 0.2, constant: 0),
+            selectedDot.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: dotHeightMultiplier, constant: 0),
+            selectedDot.widthAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: dotWidthMultiplier * 3, constant: stackView.spacing * 2),
             selectedDot.centerYAnchor.constraint(equalTo: self.stackView.centerYAnchor)
             ])
         
