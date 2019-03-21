@@ -37,7 +37,6 @@ class CustomPageControl: UIControl {
         }
     }
     
-//    private lazy var selectedDot = UIView(frame: CGRect.zero)
     private lazy var selectedDot: UIView = {
         let dot = UIView()
         setupSelectedDotAppearance(dot: dot)
@@ -49,9 +48,9 @@ class CustomPageControl: UIControl {
     private lazy var stackView = UIStackView.init(frame: bounds)
     private lazy var constantSpace = ((stackView.spacing) * CGFloat(numberOfPages - 1) + ((bounds.height * 0.45) * CGFloat(numberOfPages)) - bounds.width)
     
-    private lazy var selectedTrailingConstraint: NSLayoutConstraint = {
-        let constraint = selectedDot.trailingAnchor.constraint(
-            equalTo: numberOfDots[0].trailingAnchor, constant: 0)
+    private lazy var selectedLeadingConstraint: NSLayoutConstraint = {
+        let constraint = selectedDot.leadingAnchor.constraint(
+            equalTo: numberOfDots[0].leadingAnchor, constant: 0)
         return constraint
     }()
     
@@ -129,11 +128,11 @@ class CustomPageControl: UIControl {
         self.addSubview(selectedDot)
         self.addConstraints([
             selectedDot.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.45, constant: 0),
-            selectedDot.widthAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.45, constant: 0),
+            selectedDot.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: 0.2, constant: 0),
             selectedDot.centerYAnchor.constraint(equalTo: self.stackView.centerYAnchor)
             ])
         
-        self.addConstraint(selectedTrailingConstraint)
+        self.addConstraint(selectedLeadingConstraint)
     }
     
     //MARK: Helper methods...
@@ -162,9 +161,9 @@ class CustomPageControl: UIControl {
         numberOfDots.forEach { (dot) in
             if dot.tag == index {
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.removeConstraint(self.selectedTrailingConstraint)
-                    self.selectedTrailingConstraint = self.selectedDot.trailingAnchor.constraint(equalTo: self.numberOfDots[index].trailingAnchor, constant: 0)
-                    self.addConstraint(self.selectedTrailingConstraint)
+                    self.removeConstraint(self.selectedLeadingConstraint)
+                    self.selectedLeadingConstraint = self.selectedDot.leadingAnchor.constraint(equalTo: self.numberOfDots[index].leadingAnchor, constant: 0)
+                    self.addConstraint(self.selectedLeadingConstraint)
                     self.layoutSubviews()
                 })
                 self.sendActions(for: .valueChanged)
