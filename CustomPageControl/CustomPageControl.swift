@@ -4,7 +4,7 @@
 //
 //  Created by MAC on 20/03/19.
 //  Copyright © 2019 frzy. All rights reserved.
-//  https://medium.com/@pleelaprasad/custom-page-control-in-ios-600bea3f307a
+//  edited from: https://medium.com/@pleelaprasad/custom-page-control-in-ios-600bea3f307a
 //
 
 import UIKit
