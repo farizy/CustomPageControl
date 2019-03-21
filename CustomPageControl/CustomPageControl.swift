@@ -37,8 +37,23 @@ class CustomPageControl: UIControl {
         }
     }
     
+//    private lazy var selectedDot = UIView(frame: CGRect.zero)
+    private lazy var selectedDot: UIView = {
+        let dot = UIView()
+        setupSelectedDotAppearance(dot: dot)
+        dot.translatesAutoresizingMaskIntoConstraints = false
+        
+        return dot
+    }()
+    
     private lazy var stackView = UIStackView.init(frame: bounds)
     private lazy var constantSpace = ((stackView.spacing) * CGFloat(numberOfPages - 1) + ((bounds.height * 0.45) * CGFloat(numberOfPages)) - bounds.width)
+    
+    private lazy var selectedTrailingConstraint: NSLayoutConstraint = {
+        let constraint = selectedDot.trailingAnchor.constraint(
+            equalTo: numberOfDots[0].trailingAnchor, constant: 0)
+        return constraint
+    }()
     
     override var bounds: CGRect {
         didSet{
@@ -68,6 +83,14 @@ class CustomPageControl: UIControl {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        numberOfDots.forEach { (dot) in
+            dot.layer.cornerRadius = dot.bounds.height / 2
+        }
+        selectedDot.layer.cornerRadius = selectedDot.bounds.height / 2
     }
     
     private func setupViews() {
@@ -102,6 +125,15 @@ class CustomPageControl: UIControl {
                 
                 ])
         }
+        
+        self.addSubview(selectedDot)
+        self.addConstraints([
+            selectedDot.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.45, constant: 0),
+            selectedDot.widthAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 0.45, constant: 0),
+            selectedDot.centerYAnchor.constraint(equalTo: self.stackView.centerYAnchor)
+            ])
+        
+        self.addConstraint(selectedTrailingConstraint)
     }
     
     //MARK: Helper methods...
@@ -114,22 +146,30 @@ class CustomPageControl: UIControl {
     
     private func setupDotAppearance(dot: UIView) {
         dot.transform = .identity
-        dot.layer.cornerRadius = dot.bounds.height / 2
         dot.layer.masksToBounds = true
         dot.clipsToBounds = true
         dot.backgroundColor = pageIndicatorTintColor
     }
     
+    private func setupSelectedDotAppearance(dot: UIView) {
+        dot.transform = .identity
+        dot.layer.masksToBounds = true
+        dot.clipsToBounds = true
+        dot.backgroundColor = currentPageIndicatorTintColor
+    }
+    
     private func selectedDot(index: Int) {
         numberOfDots.forEach { (dot) in
-            setupDotAppearance(dot: dot)
             if dot.tag == index {
                 UIView.animate(withDuration: 0.2, animations: {
-//                    dot.transform = CGAffineTransform(scaleX: 2.0, y: 1)
-//                    dot.layer.cornerRadius = dot.bounds.height / 2
-                    dot.backgroundColor = self.currentPageIndicatorTintColor
+                    self.removeConstraint(self.selectedTrailingConstraint)
+                    self.selectedTrailingConstraint = self.selectedDot.trailingAnchor.constraint(equalTo: self.numberOfDots[index].trailingAnchor, constant: 0)
+                    self.addConstraint(self.selectedTrailingConstraint)
+                    self.layoutSubviews()
                 })
                 self.sendActions(for: .valueChanged)
+            } else {
+                setupDotAppearance(dot: dot)
             }
         }
     }
