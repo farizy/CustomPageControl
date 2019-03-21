@@ -28,7 +28,7 @@
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
@@ -38,11 +38,21 @@
                                     <constraint firstAttribute="height" constant="20" id="5id-ik-5Uu"/>
                                 </constraints>
                             </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4B5-Ml-P3d" customClass="CustomPageControl" customModule="CustomPageControl" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="415" width="375" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="gqH-sS-MiD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4B5-Ml-P3d" secondAttribute="trailing" id="9dY-8z-qlO"/>
                             <constraint firstItem="l6Z-L7-ypG" firstAttribute="top" secondItem="w1s-cb-VNW" secondAttribute="bottom" id="I2N-6H-CxQ"/>
+                            <constraint firstItem="4B5-Ml-P3d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jp9-rK-iew"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w1s-cb-VNW" secondAttribute="trailing" id="LkH-9w-sPY"/>
+                            <constraint firstItem="4B5-Ml-P3d" firstAttribute="top" secondItem="l6Z-L7-ypG" secondAttribute="bottom" id="VTl-8D-nDN"/>
                             <constraint firstItem="l6Z-L7-ypG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VWH-UM-Q1S"/>
                             <constraint firstItem="w1s-cb-VNW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bSq-bY-oXt"/>
                             <constraint firstItem="w1s-cb-VNW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bg5-Wl-B3s"/>
@@ -52,6 +62,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="w1s-cb-VNW" id="hfU-FY-31m"/>
+                        <outlet property="customPageControl" destination="4B5-Ml-P3d" id="wti-2i-TVv"/>
                         <outlet property="pageControl" destination="l6Z-L7-ypG" id="JRb-wD-HMa"/>
                     </connections>
                 </viewController>

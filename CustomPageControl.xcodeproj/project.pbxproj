@@ -14,6 +14,7 @@
 		044A0C51224223AD00CE7FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044A0C4F224223AD00CE7FE3 /* LaunchScreen.storyboard */; };
 		044A0C5A2242283200CE7FE3 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A0C582242283100CE7FE3 /* ColorCollectionViewCell.swift */; };
 		044A0C5B2242283200CE7FE3 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044A0C592242283100CE7FE3 /* ColorCollectionViewCell.xib */; };
+		044A0C5D22422E6600CE7FE3 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A0C5C22422E6600CE7FE3 /* CustomPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		044A0C52224223AD00CE7FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044A0C582242283100CE7FE3 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		044A0C592242283100CE7FE3 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		044A0C5C22422E6600CE7FE3 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				044A0C462242239A00CE7FE3 /* AppDelegate.swift */,
 				044A0C482242239A00CE7FE3 /* ViewController.swift */,
 				044A0C4A2242239A00CE7FE3 /* Main.storyboard */,
+				044A0C5C22422E6600CE7FE3 /* CustomPageControl.swift */,
 				044A0C4D224223AD00CE7FE3 /* Assets.xcassets */,
 				044A0C4F224223AD00CE7FE3 /* LaunchScreen.storyboard */,
 				044A0C52224223AD00CE7FE3 /* Info.plist */,
@@ -145,6 +148,7 @@
 				044A0C5A2242283200CE7FE3 /* ColorCollectionViewCell.swift in Sources */,
 				044A0C492242239A00CE7FE3 /* ViewController.swift in Sources */,
 				044A0C472242239A00CE7FE3 /* AppDelegate.swift in Sources */,
+				044A0C5D22422E6600CE7FE3 /* CustomPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

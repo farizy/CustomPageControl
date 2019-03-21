@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         }
     }
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var customPageControl: CustomPageControl!
     
     let colors: [UIColor] = [
         UIColor.red,  UIColor.orange, UIColor.yellow, UIColor.green,
@@ -38,6 +39,9 @@ class ViewController: UIViewController {
         pageControl.currentPage = 0
         pageControl.currentPageIndicatorTintColor = UIColor.darkGray
         pageControl.pageIndicatorTintColor = UIColor.lightGray
+        
+        customPageControl.numberOfPages = colors.count
+        customPageControl.currentPage = 0
     }
 }
 
@@ -57,8 +61,8 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.frame.height - 40.0
-        let width = height
+        let height = collectionView.frame.height
+        let width = collectionView.frame.width
         let size = CGSize(width: height, height: width)
         
         return size 
@@ -66,5 +70,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         pageControl.currentPage = indexPath.row
+        customPageControl.currentPage = indexPath.row
     }
 }
